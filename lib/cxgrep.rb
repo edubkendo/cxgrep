@@ -1,7 +1,7 @@
-require "cxgrep/version"
 require 'parallel'
+#require "cxgrep/version"
 
-class Cxgrep
+class CXGrep
   def initialize(options)
     @stack = options[:stack]
     @filepath = options[:filepath]

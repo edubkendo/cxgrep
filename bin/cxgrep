@@ -1,23 +1,25 @@
+#!/usr/bin/env ruby
+
 require 'optparse'
-require 'cxgrep'
+require_relative '../lib/cxgrep'
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: cxgrep -s api -f $STACK_PATH/logs/* -g 'grapes'"
+  opts.banner = "Usage: cxgrep -s api -f '$STACK_PATH/logs/*' -g 'grapes'"
 
-  opts.on("-s", "--stack", "c66 stack to search") do |stack|
+  opts.on("-s", "--stack STACK", "c66 stack to search") do |stack|
     options[:stack] = stack
   end
 
-  opts.on("-f", "--filepath", "Path to search") do |filepath|
+  opts.on("-f", "--filepath FILEPATH", "Path to search") do |filepath|
     options[:filepath] = filepath
   end
 
-  opts.on("-g", "--grep", "term/pattern to grep") do |grep|
+  opts.on("-g", "--grep GREP", "term/pattern to grep") do |grep|
     options[:grep] = grep
   end
 
-  opts.on("-z", "--zgrep-flags", "additional flags for zgrep") do |zgrep_flags|
+  opts.on("-z", "--zgrep-flags FLAGS", "additional flags for zgrep") do |zgrep_flags|
     options[:zgrep_flags] = zgrep_flags
   end
 end.parse!
