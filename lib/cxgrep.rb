@@ -5,7 +5,7 @@ class CXGrep
   def initialize(options)
     @stack = options[:stack]
     @filepath = options[:filepath]
-    @grep = options[:grep]
+    @grep = "'#{options[:grep]}'"
     @zgrep_flags = options[:zgrep_flags] ? "-#{options[:zgrep_flags]}" : ''
   end
 
